@@ -43,7 +43,7 @@ namespace FinalExam
 
         public static void Write(Exception ex)
         {
-            string fullText = string.Format($"[{DateTime.Now}] [{ex.TargetSite.DeclaringType}.{ex.TargetSite.Name}()] {ex.Message}");
+            string fullText = string.Format($"[{DateTime.Now}] [{ex.TargetSite.DeclaringType}.{ex.TargetSite.Name}({ex.GetType()})] {ex.Message}");
 
             using (var stream = File.AppendText($"{DateTime.Now.ToShortDateString()}.log"))
             {
